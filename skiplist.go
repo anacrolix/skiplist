@@ -20,8 +20,9 @@ package skiplist
 import (
 	"bytes"
 	"fmt"
-	"github.com/glenn-brown/ordinal"
 	"math/rand"
+
+	"github.com/glenn-brown/ordinal"
 )
 
 // A skiplist.T is a skiplist.  A skiplist is linked at multiple
@@ -39,11 +40,11 @@ import (
 //   L2 |---------->|---------->|---------->|------->|---------------->|---->|->/
 //   L1 |---------->|---------->|---------->|->|---->|->|->|->|------->|->|->|->/
 //   L0 |->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->|->/
-//         0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  1  1  1  1  1  1  
+//         0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  1  1  1  1  1  1
 //         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f  0  1  2  3  4  5  6
 // The skiplist is searched starting at the top level, going as far right as possible
-// without passing the desired Element, dropping down one level, and repeating for 
-// each level.	
+// without passing the desired Element, dropping down one level, and repeating for
+// each level.
 //
 type T struct {
 	cnt   int
@@ -457,7 +458,7 @@ func (l *T) String() string {
 	return string(s)
 }
 
-// The SlowKey interface allows externally-defined types to be used 
+// The SlowKey interface allows externally-defined types to be used
 // as keys.  An a.Less(b) call should return true iff a < b.
 //
 type SlowKey interface {
