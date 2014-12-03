@@ -259,6 +259,9 @@ func (l *T) Remove(key interface{}) *Element {
 	s := l.score(key)
 	prevs, _ := l.prevs(key, s)
 	// Verify there is a matching entry to remove.
+	if l.cnt == 0 {
+		return nil
+	}
 	elem := l.prev[0].link.to
 	if elem == nil || s != elem.score || s == elem.score && l.less(key, elem.key) {
 		return nil
